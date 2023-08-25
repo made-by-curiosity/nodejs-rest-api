@@ -55,8 +55,6 @@ const updateContact = async (contactId, body) => {
 
   allContacts[contactIdx] = { ...allContacts[contactIdx], ...body };
 
-  // allContacts.splice(contactIdx, 1, { ...contact, ...body });
-
   await fs.writeFile(contactsPath, JSON.stringify(allContacts));
 
   return allContacts[contactIdx];
