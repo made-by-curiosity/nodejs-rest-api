@@ -9,8 +9,6 @@ const updateAvatar = async (req, res, next) => {
   const { _id } = req.user;
   const { path: tempUpload, originalname } = req.file;
 
-  console.log('tempUpload', tempUpload);
-
   await Jimp.read(tempUpload).then(avatar => {
     return avatar.cover(250, 250).write(tempUpload);
   });
