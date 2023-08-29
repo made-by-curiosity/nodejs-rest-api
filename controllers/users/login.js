@@ -18,6 +18,10 @@ const login = async (req, res, next) => {
     throw new Unauthorized('Email or password is wrong');
   }
 
+  if (!user.verify) {
+    throw new Unauthorized("Email isn't verified");
+  }
+
   const payload = {
     id: user._id,
   };
